@@ -1,5 +1,39 @@
 # GenshinVoice
 
+## 使用说明：
+本`main.py`脚本可以生成[VITS](https://github.com/jaywalnut310/vits)适用的**中文**音频数据集。
+
+环境：conda Python 3.10.8
+
+链接 Link： [压缩包下载](https://kokona-my.sharepoint.com/:f:/g/personal/suhui_kokona_tech/Erk1kf9NgF5CqBVnINIrWKUBg_T-7FrM98Z-hX227jiTOA?e=3qAefT)
+
+**使用方法**：将压缩包（`V34_Merged_Chinese_Wav.zip`）解压后得到的文件夹重命名为`Chinese`，放在和`result.json`相同的目录内。大致如下：
+```
+(vits) username@debian:~/app/genshin-audio$ ls
+Chinese  main.py  result.json  V34_Merged_Chinese_Wav.zip
+```
+
+然后修改`main.py`的第71-78行，其中`npc_names`是你想获取语音的角色名集合（中文名字）。
+
+之后直接运行`main.py`即可：
+```shell
+python main.py
+```
+
+之后会在相同目录下生成`train_audio`文件夹，可以进去进行查看。已经生成了符合要求的`.wav`音频和`filelists`文件夹。  
+（音频要求：22050Hz, 16-bit, 单声道的wav格式音频）
+
+```
+(vits) username@debian:~/app/genshin-audio$ ls
+Chinese  main.py  result.json  train_audio  V34_Merged_Chinese_Wav.zip
+```
+
+至此结束。
+
+---
+
+## 原README.md
+
 此处包含原神中直接提取出的所有语音文件和对应的文字文本。
 
 已更新3.4版本内容。中文共计78426条语音文件，来自于版本3.1-3.4。result.json中包含78819条记录（部分记录所对应的实际音频文件已被删除，这些记录也没有对应的文本信息）。其中73970条包含text文本记录，77850条包含npcName名称记录。
